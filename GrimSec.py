@@ -60,7 +60,7 @@ async def lookup(ctx, email):
     
 @commands.has_role("Access")
 @bot.command(pass_context=True)
-async def ulookup(ctx, username)
+async def ulookup(ctx, username):
     request = urllib. request. urlopen('https://example.com/api?key=API KEY HERE&check=' + username + '&type=username')
     data = json. load(request)
     with open("result.txt", "w") as file:
