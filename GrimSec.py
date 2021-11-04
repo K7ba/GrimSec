@@ -35,23 +35,23 @@ async def on_ready():
     print("Bot is ready!")
 
 @bot.command()
-async def rules(ctx):
-    rules = discord.Embed(title="Help", color=0xe61010)
-    rules.add_field(
+async def plshelp(ctx):
+    plshelp = discord.Embed(title="Help", color=0xe61010)
+    plshelp.add_field(
         name=".lookup",
         value=
         "▸ Search Databases For The Target Email Address",
         inline=False)
-    rules.add_field(
+    plshelp.add_field(
         name=".ulookup",
         value=
         "▸ Search Databases For The Target Username",
         inline=False)
-    await ctx.send(embed=rules)
+    await ctx.send(embed=plshelp) 
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name='.help'))
+    await bot.change_presence(activity=discord.Game(name='.plshelp'))
     
 @commands.has_role("Access")
 @bot.command(pass_context=True)
