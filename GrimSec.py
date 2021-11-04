@@ -47,6 +47,11 @@ async def plshelp(ctx):
         value=
         "▸ Search Databases For The Target Username",
         inline=False)
+    plshelp.add_field(
+        name=".nlookup",
+        value=
+        "▸ Search Databases For The Target Phone Number",
+        inline=False)
     await ctx.send(embed=plshelp) 
 
 @bot.event
