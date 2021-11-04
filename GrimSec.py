@@ -35,15 +35,18 @@ async def on_ready():
     print("Bot is ready!")
 
 
-bot.remove_command('help')
-
+@bot.command()
+async def help(ctx):
+    helps = discord.Embed(title="Help", color=0xe61010)
+    helps.add_field(name=".help", value="▸ Shows This Command", inline=False)
+    helps.add_field(name=".lookup", value="▸ Search If An Email Is Inside A Breached Database", inline=False)
+    helps.add_field(name=".ulookup", value="▸ Search If A Username Is Inside A Breached Database", inline=False)
+    await ctx.send(embed=help)
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name='.lookup [Email]'))
-
-
-@commands.cooldown(3, 30, commands.BucketType.user)
+    await bot.change_presence(activity=discord.Game(name='.help'))
+    
 @commands.has_role("Access")
 @bot.command(pass_context=True)
 async def lookup(ctx, email):
@@ -53,6 +56,17 @@ async def lookup(ctx, email):
       file.write(f"{data}")
     with open("result.txt", "rb") as file:
       await ctx.send(file = discord.File(file, "result.txt"))
+    await ctx.send(embed=embed)
+    
+@commands.has_role("Access")
+@bot.command(pass_context=True)
+async def ulookup(ctx, username)
+    request = urllib. request. urlopen('https://example.com/api?key=API KEY HERE&check=' + username + '&type=username')
+    data = json. load(request)
+    with open("result.txt", "w") as file:
+      file.write(f"{data}")
+    with open("result.txt", "rb") as file:
+      await ctx.send(file = discord.file(file, "root/result.txt"))
     await ctx.send(embed=embed)
 
 bot.run('Discord Bot Token Here')
