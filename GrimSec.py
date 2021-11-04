@@ -74,5 +74,16 @@ async def ulookup(ctx, username):
     with open("result.txt", "rb") as file:
       await ctx.send(file = discord.File(file, "root/result.txt"))
     await ctx.send(embed=embed)
+    
+@commands.has_role("Access")
+@bot.command(pass_context=True)
+async def nlookup(ctx, phone):
+    request = urllib. request. urlopen('https://example.com/api?key=API KEY HERE&check=' + phone + '&type=phone')
+    data = json. load(request)
+    with open("result.txt", "w") as file:
+      file.write(f"{data}")
+    with open("result.txt", "rb") as file:
+      await ctx.send(file = discord.File(file, "root/result.txt"))
+    await ctx.send(embed=embed)   
 
 bot.run('Discord Bot Token Here')
