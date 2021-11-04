@@ -35,12 +35,19 @@ async def on_ready():
     print("Bot is ready!")
 
 @bot.command()
-async def grimhelp(ctx):
-    grimhelp = discord.Embed(title="Help", color=0xe61010)
-    grimhelp.add_field(name=".grimhelp", value="▸ Shows This Command", inline=False)
-    grimhelp.add_field(name=".lookup", value="▸ Search If An Email Is Inside A Breached Database", inline=False)
-    grimhelp.add_field(name=".ulookup", value="▸ Search If A Username Is Inside A Breached Database", inline=False)
-    await ctx.send(embed=grimhelp)
+async def rules(ctx):
+    rules = discord.Embed(title="Help", color=0xe61010)
+    rules.add_field(
+        name=".lookup",
+        value=
+        "▸ Search Databases For The Target Email Address",
+        inline=False)
+    rules.add_field(
+        name=".ulookup",
+        value=
+        "▸ Search Databases For The Target Username",
+        inline=False)
+    await ctx.send(embed=rules)
 
 @bot.event
 async def on_ready():
