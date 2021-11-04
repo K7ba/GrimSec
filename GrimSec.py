@@ -72,7 +72,7 @@ async def ulookup(ctx, username):
     with open("result.txt", "w") as file:
       file.write(f"{data}")
     with open("result.txt", "rb") as file:
-      await ctx.send(file = discord.file(file, "root/result.txt"))
+      await ctx.send(file = discord.File(file, "root/result.txt"))
     await ctx.send(embed=embed)
 
 bot.run('Discord Bot Token Here')
