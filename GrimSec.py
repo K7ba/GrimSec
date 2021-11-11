@@ -61,7 +61,7 @@ async def on_ready():
 @commands.has_role("Access")
 @bot.command(pass_context=True)
 async def lookup(ctx, email):
-    request = urllib. request. urlopen('https://leakcheck.net/api?key=API KEY HERE&check=' + email + '&type=email')
+    request = urllib. request. urlopen('https://YourApiSite.net/api?key=API KEY HERE&check=' + email + '&type=email')
     data = json. load(request)
     with open("result.txt", "w") as file:
       file.write(f"{data}")
@@ -72,7 +72,7 @@ async def lookup(ctx, email):
 @commands.has_role("Access")
 @bot.command(pass_context=True)
 async def ulookup(ctx, username):
-    request = urllib. request. urlopen('https://leakcheck.net/api?key=API KEY HERE&check=' + username + '&type=username')
+    request = urllib. request. urlopen('https://YourApiSite.net/api?key=API KEY HERE&check=' + username + '&type=username')
     data = json. load(request)
     with open("result.txt", "w") as file:
       file.write(f"{data}")
@@ -83,7 +83,7 @@ async def ulookup(ctx, username):
 @commands.has_role("Access")
 @bot.command(pass_context=True)
 async def nlookup(ctx, phone):
-    request = urllib. request. urlopen('https://leakcheck.net/api?key=API KEY HERE&check=' + phone + '&type=phone')
+    request = urllib. request. urlopen('https://YourApiSite.net/api?key=API KEY HERE&check=' + phone + '&type=phone')
     data = json. load(request)
     with open("result.txt", "w") as file:
       file.write(f"{data}")
